@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f5f5f5;
+	font-family: Arial, sans-serif;
+}
+
+/* 포스터 레이아웃 */
+.poster {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: repeat(12, 1fr);
+	width: 80%;
+	height: 90%;
+	background-color: white;
+	color: black;
+	padding: 2rem;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+/* 메인 타이틀 */
+.poster-title {
+	grid-column: span 8;
+	grid-row: 1;
+	align-self: start;
+	font-size: 3rem;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+.poster-title p {
+	font-size: 1.5rem;
+	color: red;
+}
+
+/* 서브 타이틀 */
+.sub-title {
+	grid-column: span 6;
+	grid-row: 2;
+	align-self: center;
+	font-size: 1.8rem;
+	line-height: 1.4;
+}
+
+/* 회전된 텍스트 */
+.rotated-text {
+	grid-column: 10 / 12;
+	grid-row: 1 / 4;
+	transform: rotate(-90deg);
+	transform-origin: left bottom;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #222;
+	mix-blend-mode: multiply;
+	position: absolute;
+	right: 20px;
+	bottom: 10%;
+}
+
+/* 이벤트 정보 */
+.event-info {
+	grid-column: span 6;
+	grid-row: 3;
+	align-self: end;
+	font-size: 1.2rem;
+	line-height: 1.5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+	.poster {
+		grid-template-rows: auto auto auto;
+		grid-template-columns: 1fr;
+		padding: 1rem;
+	}
+
+	.poster-title, .sub-title, .event-info {
+		grid-column: span 1;
+		text-align: center;
+	}
+
+	.rotated-text {
+		position: static;
+		transform: rotate(0);
+		text-align: center;
+	}
