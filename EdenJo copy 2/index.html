@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wish Font Introduction</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: 'Wish';
+      src: url('wish.otf') format('opentype');
+    }
+
+    /* 기본 페이지 스타일 */
+    body {
+      font-family: 'Wish', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    /* 폰트 설명 텍스트 스타일 */
+    .font-description {
+      max-width: 80%;
+      margin-bottom: 50px;
+      font-size: 1.5rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* 'WISH' 큰 텍스트 스타일 */
+    .wish-text {
+      font-size: 10rem;
+      font-weight: bold;
+      color: red;
+      background: linear-gradient(45deg, red, green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: floatWishText 3s ease-in-out infinite;
+    }
+
+    /* 검색창 스타일 */
+    .wish-search {
+      width: 60%;
+      padding: 15px;
+      font-size: 1.2rem;
+      margin-top: 30px;
+      border: 2px solid #333;
+      border-radius: 25px;
+      outline: none;
+    }
+
+    /* 소원 텍스트 스타일 */
+    .wish-texts {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #666;
+      animation: floatWishes 8s linear infinite;
+    }
+
+    .wish-texts span {
+      display: block;
+      opacity: 0;
+      animation: fadeInOut 10s ease-in-out infinite;
+    }
+
+    /* 'WISH' 텍스트 애니메이션 */
+    @keyframes floatWishText {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* 소원 애니메이션 (둥둥 떠다니는 효과) */
+    @keyframes floatWishes {
+      0% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(-100px);
+      }
+      50% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(-200px);
+      }
+      75% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(-300px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(-400px);
+      }
+    }
+
+    /* 소원 텍스트가 점차 나타나고 사라지는 효과 */
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* 눈송이 애니메이션 */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: #fff;
+      font-size: 1.5rem;
+      pointer-events: none;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* 눈송이 랜덤 위치 및 애니메이션 */
+    .snowflake:nth-child(odd) {
+      animation-duration: 4s;
+    }
+
+    .snowflake:nth-child(even) {
+      animation-duration: 6s;
+    }
+
+    .snowflake:nth-child(3n) {
+      animation-duration: 8s;
+    }
+
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+      .wish-text {
+        font-size: 6rem;
+      }
+
+      .wish-search {
+        width: 80%;
+      }
+
+      .font-description {
+        font-size: 1.2rem;
+      }
+
+      .wish-texts span {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 폰트 설명 -->
+  <div class="font-description">
+    <p>Wish is a slim, narrow serif typeface designed to bring subtle elegance and refined charm to your work.</p>
+    <p>Its delicate and modern aesthetic makes it versatile for a variety of creative applications.</p>
+    <p>Perfect for Posters and Book Covers. Wish commands attention with its striking presence while maintaining a soft, understated appeal.</p>
+    <p>Whether it’s a captivating poster, a poetic book cover, or refined invitations, Wish elevates any design with its unique character.</p>
+    <p>It’s more than a typeface, it is a tool to convey depth and meaning through every letter.</p>
+    <p>Let Wish guide your designs toward something extraordinary</p>
+  </div>
+
+  <!-- 'WISH' 큰 텍스트 -->
+  <div class="wish-text">
+    WISH
+  </div>
+
+  <!-- 소원 입력창 -->
+  <input class="wish-search" type="text" placeholder="Enter your wish...">
+
+  <!-- 소원 텍스트 -->
+  <div class="wish-texts">
+    <span>Let today be better</span>
+    <span>May I find true love</span>
+    <span>May my family stay safe</span>
+    <span>May I always have courage</span>
+  </div>
+
+  <!-- 눈송이 추가 -->
+  <div class="snowflake" style="left: 10%;">❄️</div>
+  <div class="snowflake" style="left: 20%;">❄️</div>
+  <div class="snowflake" style="left: 30%;">❄️</div>
+  <div class="snowflake" style="left: 40%;">❄️</div>
+  <div class="snowflake" style="left: 50%;">❄️</div>
+  <div class="snowflake" style="left: 60%;">❄️</div>
+  <div class="snowflake" style="left: 70%;">❄️</div>
+  <div class="snowflake" style="left: 80%;">❄️</div>
+  <div class="snowflake" style="left: 90%;">❄️</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Wish';
+  src: url('wish.otf') format('opentype');
+}
+
+/* 기본 페이지 스타일 */
+body {
+  font-family: 'Wish', sans-serif;
+  background: linear-gradient(135deg, #3a4d33, #b44242);
+  font-size: 16px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+/* 폰트 설명 텍스트 스타일 */
+.font-description {
+  max-width: 80%;
+  margin-bottom: 50px;
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1.8;
+}
+
+/* 'WISH' 큰 텍스트 스타일 */
+.wish-text {
+  font-size: 10rem;
+  font-weight: bold;
+  color: red;
+  background: linear-gradient(45deg, red, green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: floatWishText 3s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.7);
+}
+
+/* 네모창 스타일 */
+.wish-box {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: 20px;
+  border: 3px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 소원 텍스트 스타일 */
+.wish-texts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: white;
+  animation: floatWishes 8s ease-in-out infinite;
+  text-align: center;
+}
+
+.wish-texts span {
+  display: block;
+  opacity: 0;
+  animation: fadeInOut 10s ease-in-out infinite;
+}
+
+/* 소원 텍스트 애니메이션 (떠다니는 효과) */
+@keyframes floatWishes {
+  0% { transform: translate(-50%, -50%) translateY(0); opacity: 0; }
+  25% { opacity: 1; transform: translate(-50%, -50%) translateY(-50px); }
+  50% { opacity: 0; transform: translate(-50%, -50%) translateY(-100px); }
+  75% { opacity: 1; transform: translate(-50%, -50%) translateY(-150px); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translateY(-200px); }
+}
+
+/* 텍스트 애니메이션 효과 (점차 나타나고 사라지는 효과) */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* 'WISH' 텍스트 애니메이션 */
+@keyframes floatWishText {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* 소원 입력창 스타일 */
+.wish-search {
+  width: 60%;
+  padding: 15px;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  border: 2px solid #333;
+  border-radius: 25px;
+  outline: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .wish-text {
+    font-size: 6rem;
+  }
+  .wish-search {
+    width: 80%;
+  }
+  .font-description {
+    font-size: 1.2rem;
+  }
+  .wish-texts span {
+    font-size: 1.5rem;
+  }
+}
